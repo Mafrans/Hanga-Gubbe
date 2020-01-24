@@ -15,4 +15,13 @@ public class Input {
 
         return matcher.find() && letter.length() == 1 ? letter : null;
     }
+
+    public String getInput() {
+        Scanner scanner = new Scanner(System.in);
+
+        String input = scanner.nextLine();
+
+        return input;
+    }
+
 }
