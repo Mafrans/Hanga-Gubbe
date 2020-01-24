@@ -14,3 +14,20 @@ Vad har ni löst idag?: Vi har skrivit klart vår ordgenerator och gjort klart f
 Vilket problem ska ni lösa nästa gång?: Vi ska börja jobba med input-system och fortsätta jobba på ett renderingssystem.
 
 Finns det något som ni inte tror ni kan lösa?: Inget just nu.
+
+##v4 Torsdag
+
+Vad har ni löst idag?: Vi skrev på en renderare och början på ett inputsystem.
+
+Vilket problem ska ni lösa nästa gång?: Göra klart inputsystemet och renderaren.
+
+Finns det något som ni tror att ni inte kan lösa?: Nej.
+
+##v4 Fredag
+
+Vad har ni löst idag?: Vi skrev klart inputsystemet och gjorde om renderaren till en komplett spelhanterare.
+
+Vilket problem ska ni lösa nästa gång?: Vi ska linta koden och skriva om programmet till engelska samt generell buggtesting.
+
+Finns det något som ni inte tror att ni kan lösa?: Nej.
+
