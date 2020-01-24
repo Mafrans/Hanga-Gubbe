@@ -1,6 +1,5 @@
-package me.mafrans.hangman.util;
+package me.mafrans.hangman;
 
-import me.mafrans.consolegame.areas.Area;
 import org.fusesource.jansi.Ansi;
 
 import java.io.IOException;
@@ -16,31 +15,14 @@ public class Console {
         System.out.println(ansi().render(string));
     }
 
-    public static void render(String string, boolean wait) {
+    public static void render(String string) {
         clear();
         log(ansi().eraseScreen().render(string).reset());
-
-        if(wait) waitForInput();
     }
 
-    public static void render(Ansi ansi, boolean wait) {
+    public static void render(Ansi ansi) {
         clear();
         log(ansi.eraseScreen().toString());
-
-        if(wait) waitForInput();
-    }
-
-    public static void renderArea(Area area, boolean wait) {
-        render(area.getDescription().toString(), wait);
-    }
-
-    public static void renderCurrent(boolean wait) {
-        renderArea(App.self.areaHandler.currentArea, wait);
-    }
-
-    public static void waitForInput() {
-        String input = App.self.in.next();
-        App.self.areaHandler.currentArea.onCommand(input);
     }
 
     public static void clear() {
