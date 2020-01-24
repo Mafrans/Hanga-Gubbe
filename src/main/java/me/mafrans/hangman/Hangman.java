@@ -3,7 +3,70 @@ package me.mafrans.hangman;
 public class Hangman {
     public static void main(String[] args) {
         Wordgenerator wordgenerator = new Wordgenerator();
-        HangmanManager renderer = new HangmanManager(wordgenerator.generate());
-        renderer.render(5);
+        HangmanManager manager = new HangmanManager(wordgenerator.generate());
+        Input inputManager = new Input();
+
+        manager.render();
+
+        gameLoop: while (true) {
+            Console.log("Skriv en bokstav mellan A och Z");
+            String letter = inputManager.getLetter();
+
+            if(letter == null) {
+                Console.log("Den bokstaven kan du inte fråga efter.");
+                manager.render();
+                continue;
+            }
+
+            if(!manager.tryLetter(letter)) {
+                Console.log("Aj aj aj, det var fel.");
+            }
+
+            if(manager.getFailures() == 7) {
+                manager.showAll();
+                manager.render();
+
+                while (true) {
+                    Console.log("Game Over! Försök igen? (ja/nej)");
+                    String input = inputManager.getInput();
+
+                    if (input.equalsIgnoreCase("ja")) {
+                        manager = new HangmanManager(wordgenerator.generate());
+                        manager.render();
+                        continue gameLoop;
+                    }
+                    else if (input.equalsIgnoreCase("nej")) {
+                        break gameLoop;
+                    }
+                }
+            }
+            else {
+                boolean allVisible = true;
+                for(Letter l : manager.getLetters()) {
+                    if (!l.visible) {
+                        allVisible = false;
+                        break;
+                    }
+                }
+
+                if (allVisible) {
+                    Console.log("Du vann, bra jobbat!");
+
+                    while (true) {
+                        Console.log("Vill du spela igen? (ja/nej)");
+                        String input = inputManager.getInput();
+
+                        if (input.equalsIgnoreCase("ja")) {
+                            manager = new HangmanManager(wordgenerator.generate());
+                            manager.render();
+                            continue gameLoop;
+                        }
+                        else if (input.equalsIgnoreCase("nej")) {
+                            break gameLoop;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

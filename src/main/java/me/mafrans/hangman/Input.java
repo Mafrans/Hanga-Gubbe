@@ -11,7 +11,6 @@ public class Input {
 
         String letter = scanner.nextLine();
         Matcher matcher = Pattern.compile("[A-Za-z]").matcher(letter);
-        matcher.find();
 
         return matcher.find() && letter.length() == 1 ? letter : null;
     }

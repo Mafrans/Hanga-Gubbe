@@ -4,6 +4,7 @@ import org.apache.commons.lang.StringUtils;
 
 import java.awt.*;
 import java.beans.Expression;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -23,11 +24,13 @@ public class HangmanManager {
         }
     }
 
-    public void tryLetter(String letter) {
-        if (!showLetter(letter)) {
+    public boolean tryLetter(String letter) {
+        boolean show = showLetter(letter);
+        if (!show) {
             failures++;
         }
         render(failures);
+        return show;
     }
 
     public boolean showLetter(String letter) {
@@ -41,8 +44,14 @@ public class HangmanManager {
         return out;
     }
 
+    public void showAll() {
+        for(Letter l : letters) {
+            l.visible = true;
+        }
+    }
+
     public void render(int failures) {
-        Scanner in = new Scanner(ClassLoader.getSystemResourceAsStream("hangman-" + failures + ".txt"));
+        Scanner in = new Scanner(Objects.requireNonNull(ClassLoader.getSystemResourceAsStream("hangman-" + failures + ".txt")));
         StringBuilder bob = new StringBuilder();
         while(in.hasNextLine()) {
             bob.append(in.nextLine() + "\n");
@@ -56,5 +65,17 @@ public class HangmanManager {
         bob.append("\n");
 
         Console.render(bob.toString());
+    }
+
+    public void render() {
+        render(failures);
+    }
+
+    public int getFailures() {
+        return failures;
+    }
+
+    public Letter[] getLetters() {
+        return letters;
     }
 }
