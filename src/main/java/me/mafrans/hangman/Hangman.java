@@ -1,10 +1,27 @@
 package me.mafrans.hangman;
 
+/**
+ * <p>
+ * Main class running the entire game process.
+ * </p>
+ *
+ * @since 1.0
+ * @author Malte Klüft, Filip Norberg
+ * @version 1.0
+ */
 public final class Hangman {
     private Hangman() {
     }
 
+    /**
+     * The amount of failures required to lose the game.
+     */
     private static final int MAX_FAILURES = 7;
+
+    /**
+     * The main process, handles the game loop.
+     * @param args Array of process arguments (unused)
+     */
 
     public static void main(final String[] args) {
         Wordgenerator wordgenerator = new Wordgenerator();
