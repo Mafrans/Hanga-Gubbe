@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"me.mafrans.hangman","l":"Console"},{"p":"me.mafrans.hangman","l":"Hangman"},{"p":"me.mafrans.hangman","l":"HangmanManager"},{"p":"me.mafrans.hangman","l":"Input"},{"p":"me.mafrans.hangman","l":"Letter"},{"p":"me.mafrans.hangman","l":"Wordgenerator"}]
