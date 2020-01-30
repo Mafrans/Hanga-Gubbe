@@ -114,11 +114,7 @@ public class HangmanManager {
                         (maxLength - letters.length * 2) / 2));
 
         for (Letter l : letters) {
-            bob.append(
-                    l.isVisible() || l.getLetter().equals(" ")
-                        ? l.getLetter()
-                        : "_"
-                ).append(" ");
+            bob.append(l.toString()).append(" ");
         }
         bob.append("\n");
 

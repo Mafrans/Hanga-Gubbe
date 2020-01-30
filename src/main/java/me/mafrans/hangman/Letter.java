@@ -10,7 +10,7 @@ public class Letter {
 
     @Override
     public String toString() {
-        return visible ? letter : "";
+        return visible || letter.equals(" ") ? letter : "_";
     }
 
     public String getLetter() {
