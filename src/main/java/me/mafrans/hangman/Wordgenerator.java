@@ -8,6 +8,7 @@ import java.util.Set;
 public class Wordgenerator
 {
     private String[] wordlist;
+    
     public Wordgenerator()
     {
         Scanner scanner = new Scanner(ClassLoader.getSystemResourceAsStream("wordlist.csv"));
