@@ -93,12 +93,15 @@ public class HangmanManager {
      * @param failures The amount of failures to render as
      */
     public void render(final int failures) {
+        // Create a scanner and builder for reading a text file
         Scanner in = new Scanner(
                 Objects.requireNonNull(
                         ClassLoader.getSystemResourceAsStream(
+                                // The text file depends on the current amount of failures
                                 "hangman-" + failures + ".txt")));
         StringBuilder bob = new StringBuilder();
 
+        // Read the text file and save the length of the longest line
         int maxLength = 0;
         while (in.hasNextLine()) {
             String line = in.nextLine();
@@ -109,15 +112,19 @@ public class HangmanManager {
             bob.append(line + "\n");
         }
         bob.append("\n");
+
+        // Append a margin to the left, making sure the current word is centered
         bob.append(
                 StringUtils.repeat(" ",
                         (maxLength - letters.length * 2) / 2));
 
+        // Append the current word
         for (Letter l : letters) {
             bob.append(l.toString()).append(" ");
         }
         bob.append("\n");
 
+        // Render the frame
         Console.render(bob.toString());
     }
 
