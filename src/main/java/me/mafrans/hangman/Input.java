@@ -8,7 +8,6 @@ public class Input {
 
     public String getLetter() {
         Scanner scanner = new Scanner(System.in);
-
         String letter = scanner.nextLine();
         Matcher matcher = Pattern.compile("[A-Za-z]").matcher(letter);
 
@@ -18,9 +17,7 @@ public class Input {
     public String getInput() {
         Scanner scanner = new Scanner(System.in);
 
-        String input = scanner.nextLine();
-
-        return input;
+        return scanner.nextLine();
     }
 
 }
