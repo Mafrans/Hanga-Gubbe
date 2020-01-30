@@ -6,6 +6,10 @@ import java.util.regex.Pattern;
 
 public class Input {
 
+    /**
+     * Asks the player to enter a letter from a to z, also makes sure that other letters or symbols cannot be entered as they are not part of the english alphabet.
+     * @return Returns the letter if it corresponds with the criteria, returns null if it doesn't.
+     */
     public String getLetter() {
         Scanner scanner = new Scanner(System.in);
         String letter = scanner.nextLine();
@@ -14,6 +18,10 @@ public class Input {
         return matcher.find() && letter.length() == 1 ? letter : null;
     }
 
+    /**
+     * Asks the player to input something.
+     * @return Returns what the player inputs.
+     */
     public String getInput() {
         Scanner scanner = new Scanner(System.in);
 

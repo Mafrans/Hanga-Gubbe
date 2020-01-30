@@ -15,17 +15,17 @@ public final class Hangman {
 
         gameLoop:
         while (true) {
-            Console.log("Skriv en bokstav mellan A och Z");
+            Console.log("Type out a letter between A and Z.");
             String letter = inputManager.getLetter();
 
             if (letter == null) {
-                Console.log("Den bokstaven kan du inte fråga efter.");
+                Console.log("You cannot use this letter.");
                 manager.render();
                 continue;
             }
 
             if (!manager.tryLetter(letter)) {
-                Console.log("Aj aj aj, det var fel.");
+                Console.log("Uh oh, that was incorrect.");
             }
 
             if (manager.getFailures() == MAX_FAILURES) {
@@ -33,14 +33,14 @@ public final class Hangman {
                 manager.render();
 
                 while (true) {
-                    Console.log("Game Over! Försök igen? (ja/nej)");
+                    Console.log("Game Over! Try again? (yes/no)");
                     String input = inputManager.getInput();
 
-                    if (input.equalsIgnoreCase("ja")) {
+                    if (input.equalsIgnoreCase("yes")) {
                         manager = new HangmanManager(wordgenerator.generate());
                         manager.render();
                         continue gameLoop;
-                    } else if (input.equalsIgnoreCase("nej")) {
+                    } else if (input.equalsIgnoreCase("no")) {
                         break gameLoop;
                     }
                 }
@@ -54,19 +54,18 @@ public final class Hangman {
                 }
 
                 if (allVisible) {
-                    Console.log("Du vann, bra jobbat!");
+                    Console.log("You won, great job!");
 
                     while (true) {
-                        Console.log("Vill du spela igen? (ja/nej)");
+                        Console.log("Do you want to play again? (yes/no)");
                         String input = inputManager.getInput();
 
-                        if (input.equalsIgnoreCase("ja")) {
+                        if (input.equalsIgnoreCase("yes")) {
                             manager = new HangmanManager(
                                     wordgenerator.generate());
-
                             manager.render();
                             continue gameLoop;
-                        } else if (input.equalsIgnoreCase("nej")) {
+                        } else if (input.equalsIgnoreCase("no")) {
                             break gameLoop;
                         }
                     }
